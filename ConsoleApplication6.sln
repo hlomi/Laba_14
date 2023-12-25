@@ -1,31 +1,33 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.7.34202.233
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConsoleApplication6", "ConsoleApplication6\ConsoleApplication6.vcxproj", "{6CFF06B6-C820-41C1-8900-9913285E9E0E}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6CFF06B6-C820-41C1-8900-9913285E9E0E}.Debug|x64.ActiveCfg = Debug|x64
-		{6CFF06B6-C820-41C1-8900-9913285E9E0E}.Debug|x64.Build.0 = Debug|x64
-		{6CFF06B6-C820-41C1-8900-9913285E9E0E}.Debug|x86.ActiveCfg = Debug|Win32
-		{6CFF06B6-C820-41C1-8900-9913285E9E0E}.Debug|x86.Build.0 = Debug|Win32
-		{6CFF06B6-C820-41C1-8900-9913285E9E0E}.Release|x64.ActiveCfg = Release|x64
-		{6CFF06B6-C820-41C1-8900-9913285E9E0E}.Release|x64.Build.0 = Release|x64
-		{6CFF06B6-C820-41C1-8900-9913285E9E0E}.Release|x86.ActiveCfg = Release|Win32
-		{6CFF06B6-C820-41C1-8900-9913285E9E0E}.Release|x86.Build.0 = Release|Win32
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {A77FFE99-33A7-4664-ACE1-CFD37B1E5B13}
-	EndGlobalSection
-EndGlobal
+#include <iostream>
+#include <climits>
+int findMaxIndex(const int mas[], int size) {//оголошення функціії ля пошуку мінімального значення
+    int maxIndex = 0; //початкове значення
+    for (int i = 1; i < size; i++) { //цикл для обчислення
+        if (mas[i] > mas[maxIndex]) {
+            maxIndex = i;
+        }
+    }
+    return maxIndex;}//вивести максимальне
+int findMinIndex(const int mas[], int size) {
+    // оголошення функціії ля пошуку максимального значення
+    int minIndex = 0;
+    for (int i = 1; i < size; i++) {
+        if (mas[i] < mas[minIndex]) {
+            minIndex = i;
+        }
+    }
+    return minIndex;//вивести мінімальне
+}
+int main() {
+    setlocale(LC_ALL, "ukr");
+    int mas[10], i;//прописати масив 
+    std::cout << "Введіть 10 значень масиву: \n ";//значення введені юзером
+    for (i = 0; i < 10; i++) {
+        std::cin >> mas[i];}//опрацювання ком'ютером масива
+    int minIndex = findMinIndex(mas, 10);
+    int maxIndex = findMaxIndex(mas, 10);
+    int distance = maxIndex - minIndex;//оголошення змінних для виведення кінцевих результатів
+    std::cout << "Позиція мінімального елемента: " << minIndex << std::endl;
+    std::cout << "Позиція максимального елемента: " << maxIndex << std::endl;
+    std::cout << "Відстань від максимального до мінімального: " << distance << std::endl;//виведення кінцевих результатів
+    return 0;}
