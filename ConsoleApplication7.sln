@@ -1,31 +1,19 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.7.34202.233
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConsoleApplication7", "ConsoleApplication7\ConsoleApplication7.vcxproj", "{368A0EBE-B7E3-484D-97EC-73B14F8A9E80}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{368A0EBE-B7E3-484D-97EC-73B14F8A9E80}.Debug|x64.ActiveCfg = Debug|x64
-		{368A0EBE-B7E3-484D-97EC-73B14F8A9E80}.Debug|x64.Build.0 = Debug|x64
-		{368A0EBE-B7E3-484D-97EC-73B14F8A9E80}.Debug|x86.ActiveCfg = Debug|Win32
-		{368A0EBE-B7E3-484D-97EC-73B14F8A9E80}.Debug|x86.Build.0 = Debug|Win32
-		{368A0EBE-B7E3-484D-97EC-73B14F8A9E80}.Release|x64.ActiveCfg = Release|x64
-		{368A0EBE-B7E3-484D-97EC-73B14F8A9E80}.Release|x64.Build.0 = Release|x64
-		{368A0EBE-B7E3-484D-97EC-73B14F8A9E80}.Release|x86.ActiveCfg = Release|Win32
-		{368A0EBE-B7E3-484D-97EC-73B14F8A9E80}.Release|x86.Build.0 = Release|Win32
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {E81A2DC6-26EE-4EAA-87AE-1CBF0A6D3A3A}
-	EndGlobalSection
-EndGlobal
+#include <iostream>
+
+double calculateAP(const int mas[], int size) { // Функція для обчислення арифметичного середнього (середнього значення) масиву
+	double sumP = 0.0;// Ініціалізація sumP значенням 0.0 для накопичення суми елементів масиву
+	for (int i = 0; i < size; i++) {  // Цикл через кожен елемент масиву
+		sumP += mas[i]; //Додаємо до sumP реальні значення в масиві
+	}
+	return sumP / size;  // Повертаємо арифметичне середнє, розділивши суму на розмір масиву
+}
+int main() { // Встановлюємо локаль для виведення повідомлень
+	setlocale(LC_ALL, "ukr"); // Додаємо локалізацію
+	int mas[10]; // Оголошуємо масив розміром 10 для збереження введених користувачем значень
+	std::cout << "Введіть 10 значень масиву:\n";// Просимо користувача ввести 10 значень для масиву 
+	for (int i = 0; i < 10; i++) { 
+		std::cin >> mas[i];// Зчитуємо кожне введене значення в масив
+	}
+	double AP = calculateAP(mas, 10);// Викликаємо функцію для обчислення арифметичного середнього масиву
+	std::cout << "Середнє значення в масиві:" << AP << std::endl; // Виводимо результат (арифметичне середнє) користувачеві
+}
